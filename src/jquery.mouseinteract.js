@@ -41,6 +41,7 @@ jQuery.fn.mouseInteract = function(options){
 		'mouseDown':function(e){
 			jQuery(this).addClass(self.options.mouseDownClass);
 			self.options.onMouseDown.apply(this,[e,jQuery(this)]);
+		},
 		'mouseUp':function(e){
 			jQuery(this).removeClass(self.options.mouseDownClass);
 			self.options.onMouseUp.apply(this,[e,jQuery(this)]);
