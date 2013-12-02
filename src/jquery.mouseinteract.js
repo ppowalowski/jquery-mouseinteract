@@ -15,7 +15,7 @@ jQuery.fn.mouseInteract = function(options){
 		'onMouseOut':function(){},
 		'delegation':false,
 		'delegationParentSelector':'body'
-	};		
+	};
 	this.initialize = function(options){
 		if (options)
 			jQuery.extend(true, this.options, options);
@@ -29,21 +29,21 @@ jQuery.fn.mouseInteract = function(options){
 	};
 	this.EventHandler = {
 		'mouseOver':function(e){
+		    console.log(this);
 			jQuery(this).addClass(self.options.mouseOverClass);
-			self.options.onMouseOver(e,jQuery(this));
+			self.options.onMouseOver.apply(this,[e,jQuery(this)]);
 		},
 		'mouseOut':function(e){
 			jQuery(this).removeClass(self.options.mouseOverClass);
 			jQuery(this).removeClass(self.options.mouseDownClass);
-			self.options.onMouseOut(e,jQuery(this));
+			self.options.onMouseOut.apply(this,[e,jQuery(this)]);
 		},
 		'mouseDown':function(e){
 			jQuery(this).addClass(self.options.mouseDownClass);
-			self.options.onMouseDown(e,jQuery(this));
-		},
+			self.options.onMouseDown.apply(this,[e,jQuery(this)]);
 		'mouseUp':function(e){
 			jQuery(this).removeClass(self.options.mouseDownClass);
-			self.options.onMouseUp(e,jQuery(this));
+			self.options.onMouseUp.apply(this,[e,jQuery(this)]);
 		}
 	};
 	this.delegateEvents = function(){
@@ -92,7 +92,7 @@ jQuery.fn.mouseoverFader = function(options){
 		'delegation':false,
 		'delegationParentSelector':'body'
 	};
-	
+
 	this.initialize = function(options){
 		if (options)
 			jQuery.extend(true, this.options, options);
