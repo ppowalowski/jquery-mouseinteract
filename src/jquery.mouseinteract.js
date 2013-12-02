@@ -29,7 +29,6 @@ jQuery.fn.mouseInteract = function(options){
 	};
 	this.EventHandler = {
 		'mouseOver':function(e){
-		    console.log(this);
 			jQuery(this).addClass(self.options.mouseOverClass);
 			self.options.onMouseOver.apply(this,[e,jQuery(this)]);
 		},
